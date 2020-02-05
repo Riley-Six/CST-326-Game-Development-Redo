@@ -7,6 +7,7 @@ public class Paddles : MonoBehaviour
     public bool isLpaddle;
     //Left = True, Right = False
     public float speed = 4f;
+    public int multiplier = 5;
 
 
     // Start is called before the first frame update
@@ -20,11 +21,11 @@ public class Paddles : MonoBehaviour
     {
         if (isLpaddle)
         {
-            transform.Translate(0f, Input.GetAxis("Horizontal1") * speed * Time.deltaTime, 0f);
+            transform.Translate(0f, 0f, Input.GetAxis("Horizontal1") * speed * Time.deltaTime * multiplier);
         }
         else
         {
-            transform.Translate(0f, Input.GetAxis("Horizontal2") * speed * Time.deltaTime, 0f);
+            transform.Translate(0f, 0f, Input.GetAxis("Horizontal2") * speed * Time.deltaTime * multiplier);
         }
 
     }

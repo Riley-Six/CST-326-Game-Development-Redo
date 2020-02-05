@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Left Goal
+  - Right Goal
+  - Left Paddle
+  - Right Paddle
   layers:
   - Default
   - TransparentFX
