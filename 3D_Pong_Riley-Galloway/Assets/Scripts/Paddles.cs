@@ -21,6 +21,7 @@ public class Paddles : MonoBehaviour
     {
         if (isLpaddle)
         {
+            
             transform.Translate(0f, 0f, Input.GetAxis("Horizontal1") * speed * Time.deltaTime * multiplier);
         }
         else
