@@ -6,6 +6,8 @@ public class Ball : MonoBehaviour
 {
     public float speed = 4f;
     public float faster = 0.5f;
+    public int redPoints = 0;
+    public int bluePoints = 0;
 
 
     // Start is called before the first frame update
@@ -36,13 +38,17 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.tag == "Left Goal")
         {
             Debug.Log("Left Goal Bop");
-            
+            bluePoints += 1;
+            Debug.Log("Points 2 : " + bluePoints);
+
 
         }
         if (collision.gameObject.tag == "Right Goal")
         {
             Debug.Log("Right Goal Bop");
-            
+            redPoints += 1;
+            Debug.Log("Points 1 : " + redPoints);
+
 
         }
     }
