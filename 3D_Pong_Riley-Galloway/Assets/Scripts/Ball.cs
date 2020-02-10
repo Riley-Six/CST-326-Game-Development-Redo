@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class Ball : MonoBehaviour
 {
     public float speed = 4f;
@@ -39,10 +39,6 @@ public class Ball : MonoBehaviour
         {
             Debug.Log("Left Goal Bop");
             bluePoints += 1;
-            if(bluePoints == 10)
-            {
-                Debug.Log("Left Goal win");
-            }
             Debug.Log("Points 2 : " + bluePoints);
 
 
@@ -66,6 +62,7 @@ public class Ball : MonoBehaviour
 
     [SerializeField] private float amplitude;
     [SerializeField] private float step;
+    
     private float startAmplitude;
 
     private Rigidbody rb;
@@ -87,15 +84,16 @@ public class Ball : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.name == "Left Paddle" || collision.gameObject.name == "Right Paddle")
+        if (collision.gameObject.name == "BluePaddle" || collision.gameObject.name == "RedPaddle")
         {
             //play sound
+            
 
             amplitude += step;
             float offset = Mathf.Pow((transform.position.z - collision.transform.position.z), 2);
             offset = (transform.position.z - collision.transform.position.z < 0) ? offset * -1 : offset;
 
-            rb.velocity = (collision.gameObject.name == "PaddleLeft")
+            rb.velocity = (collision.gameObject.name == "BluePaddle")
                 ? new Vector3(amplitude, 0, offset)
                 : new Vector3(-amplitude, 0, offset);
         }
