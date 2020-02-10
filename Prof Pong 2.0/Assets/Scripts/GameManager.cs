@@ -10,13 +10,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ball.Restart();
+        ball.Start();
     }
 
     public void Score(Goal goal)
     {
+        Debug.Log("Manage");
         scoreKeeper.AddScore(goal);
-        ball.Restart();
+        ball.Restart(goal);
     }
 
 
