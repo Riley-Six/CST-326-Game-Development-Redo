@@ -8,8 +8,24 @@ public class Paddle : MonoBehaviour
 
     public AudioSource speaker;
 
-    public void MadeContact()
+    /*
+    void OnCollisionEnter(Collision collision)
     {
-        speaker.PlayOneShot(hitSound);
+        if (collision.gameObject.name == "Ball")
+        {
+            Debug.Log("Paddle Bonk");
+            speaker.PlayOneShot(hitSound);
+        }
+
+    }
+    */
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Ball")
+        {
+            speaker.PlayOneShot(hitSound);
+        }
+            
     }
 }

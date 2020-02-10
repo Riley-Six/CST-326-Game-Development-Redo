@@ -9,6 +9,8 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        Debug.Log("goal touched");
+
         gameManager.Score(this);
     }
 }
