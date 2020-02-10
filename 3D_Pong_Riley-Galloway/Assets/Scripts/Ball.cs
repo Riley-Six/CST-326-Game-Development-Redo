@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 public class Ball : MonoBehaviour
 {
     public float speed = 4f;
@@ -39,10 +39,6 @@ public class Ball : MonoBehaviour
         {
             Debug.Log("Left Goal Bop");
             bluePoints += 1;
-            if(bluePoints == 10)
-            {
-                Debug.Log("Left Goal win");
-            }
             Debug.Log("Points 2 : " + bluePoints);
 
 
