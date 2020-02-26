@@ -15,6 +15,12 @@ public class LevelParserStarter : MonoBehaviour
 
     public GameObject Stone;
 
+    public GameObject Water;
+
+    public GameObject Finish;
+
+    public GameObject Coin;
+
     public Transform parentTransform;
 
     
@@ -62,6 +68,9 @@ public class LevelParserStarter : MonoBehaviour
             case '?': ToSpawn = QuestionBox; break;
             case 'x': ToSpawn = Rock; break;
             case 's': ToSpawn = Rock; break;
+            case 'w': ToSpawn = Water; break;
+            case 'f': ToSpawn = Finish; break;
+            case 'c': ToSpawn = Coin; break;
             //default: Debug.Log("Default Entered"); break;
             default: return;
                 //ToSpawn = //Brick;       break;

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 using TMPro;
 
 public class TimeCount : MonoBehaviour
 {
-    
-    float timeleft = 375.0f;
+    public float timeleft;
     public TextMeshProUGUI text;
 
 
@@ -25,7 +25,8 @@ public class TimeCount : MonoBehaviour
 
         if (timeleft < 0)
         {
-            SceneManager.LoadScene("LevelParser");
+            text.SetText("!!!YOU LOST!!!");
+            text.color = Color.red;
         }
     }
 
