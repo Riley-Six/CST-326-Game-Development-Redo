@@ -21,6 +21,8 @@ public class LevelParserStarter : MonoBehaviour
 
     public GameObject Coin;
 
+    public GameObject DEATH;
+
     public Transform parentTransform;
 
     
@@ -71,6 +73,8 @@ public class LevelParserStarter : MonoBehaviour
             case 'w': ToSpawn = Water; break;
             case 'f': ToSpawn = Finish; break;
             case 'c': ToSpawn = Coin; break;
+            case 'D': ToSpawn = DEATH; break;
+
             //default: Debug.Log("Default Entered"); break;
             default: return;
                 //ToSpawn = //Brick;       break;

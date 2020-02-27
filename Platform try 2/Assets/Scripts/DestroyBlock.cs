@@ -1,19 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
 
 public class DestroyBlock : MonoBehaviour
 {
 
 
-    public GameObject Block;
+    public GameObject QuestionBox;
+
+    public GameObject Coin;
+
+    public GameObject DEATH;
+
+    public GameObject Finish;
+
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI timer;
+    public int points = 0;
+    public int coinPoints = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        Block.GetComponent<GameObject>();
-    }
+        QuestionBox.GetComponent<GameObject>();
+        Coin.GetComponent<GameObject>();
 
+    }
+    /*
     private void Update()
     {
         if(Input.GetMouseButton(0))
@@ -32,8 +49,45 @@ public class DestroyBlock : MonoBehaviour
                 }
             }
         }
+    }*/
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "QuestionBox(Clone)" || collision.gameObject.name == "Coin(Clone)")
+        {
+            Debug.Log("HERE");
+            if (collision.gameObject.name == "QuestionBox(Clone)") {
+                points = points + 100;
+                scoreText.text = "0000" + points;
+                if (points >= 99)
+                { 
+                    scoreText.text = "00" + points;
+                }
+            } else
+            {
+                coinPoints = coinPoints + 1;
+                coinText.text = "" + coinPoints;
+                points = points + 100;
+                scoreText.text = "0000" + points;
+                if (points >= 99)
+                {
+                    scoreText.text = "00" + points;
+                }
+            }
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.name == "DEATH(Clone)")
+        {
+            Destroy(GameObject.Find("Ethan"));
+        }
+
+        if (collision.gameObject.name == "Finish(Clone)")
+        {
+            Debug.Log("Win");
+            timer.text = "WINNER!!!";
+        }
+
+
+
+
     }
-
-    
-
 }
