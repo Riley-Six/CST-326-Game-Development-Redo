@@ -78,12 +78,15 @@ public class DestroyBlock : MonoBehaviour
         if (collision.gameObject.name == "DEATH(Clone)")
         {
             Destroy(GameObject.Find("Ethan"));
+            timer.text = "DEATH!!!!";
+            timer.color = Color.yellow;
         }
 
         if (collision.gameObject.name == "Finish(Clone)")
         {
             Debug.Log("Win");
             timer.text = "WINNER!!!";
+            
         }
 
 

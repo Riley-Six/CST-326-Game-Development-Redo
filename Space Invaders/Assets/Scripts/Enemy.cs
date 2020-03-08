@@ -7,33 +7,37 @@ public class Enemy : MonoBehaviour
     //[SerializeField] private GameManager gameManager;
     // Start is called before the first frame update
     //[SerializeField] public AddingScore addingUp;
+    //public int yo;
     void OnCollisionEnter2D(Collision2D collision)
     {
-
-        Debug.Log("Ouch!");
-        Destroy(collision.gameObject);
         //Score_Lives.AddScore(this);
-        /*if (collision.gameObject.name == "Enemytype1")
+        
+        //Score_Lives.AddScore(this);
+        /*
+        if (collision.gameObject.name == "Enemytype1")
         {
-            //yo = 1;
-            addingUp.AddScore(this);
+            yo = 1;
+            Score_Lives.AddScore(yo);
         }
         else if (collision.gameObject.name == "Enemytype2")
         {
-            //yo = 2;
-            addingUp.AddScore(this);
+            yo = 2;
+            Score_Lives.AddScore(yo);
         }
         else if (collision.gameObject.name == "Enemytype3")
         {
-            //yo = 3;
-            addingUp.AddScore(this);
+            yo = 3;
+            Score_Lives.AddScore(yo);
         }
         else if (collision.gameObject.name == "Player3")
         {
-            //yo = 4;
-            addingUp.AddScore(this);
+            yo = 4;
+            Score_Lives.AddScore(yo);
+            Debug.Log("4");
         }*/
 
+        //Debug.Log("Ouch!");
+        Destroy(collision.gameObject);
     }
 
     /*void OnCollisionEnter2D(Collision2D collision)
