@@ -7,32 +7,46 @@ public class myPlayerMovingGO : MonoBehaviour
 
     public Transform player;
     public float speed, leftWall, rightWall, playerAxis;
-    private float stationary = 0;
+    //private float stationary = 0;
     public GameObject bullet;
     public Transform shottingOffset;
+    private Animator playerAnimator;
+    //public AudioSource pewpew;
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<Transform> ();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         playerAxis = Input.GetAxis("playerLandR");
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            playerAnimator.SetTrigger("Fire!");
             GameObject shot = Instantiate(bullet, shottingOffset.position, Quaternion.identity);
             //Debug.Log("Bang!");
+            //pewpew.Play();
 
             Destroy(shot, 3f);
 
         }
+        
     }
+
+
 
     void FixedUpdate()
     {
+
+
+
+
+
         float stopper = 0;
         playerAxis = Input.GetAxis("playerLandR");
 
@@ -57,5 +71,12 @@ public class myPlayerMovingGO : MonoBehaviour
 
     }
 
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        GetComponent<Animator>().SetTrigger("Death");
+    }
+
 }
+
+
 

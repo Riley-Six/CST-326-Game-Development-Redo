@@ -8,10 +8,11 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     //[SerializeField] public AddingScore addingUp;
     //public int yo;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         //Score_Lives.AddScore(this);
-        
+
         //Score_Lives.AddScore(this);
         /*
         if (collision.gameObject.name == "Enemytype1")
@@ -36,7 +37,8 @@ public class Enemy : MonoBehaviour
             Debug.Log("4");
         }*/
 
-        //Debug.Log("Ouch!");
+        Debug.Log("Ouch!");
+        GetComponent<Animator>().SetTrigger("Death");
         Destroy(collision.gameObject);
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Score_Lives : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class Score_Lives : MonoBehaviour
     [SerializeField] public Enemy top;
     [SerializeField] public Enemy mid;
     [SerializeField] public Enemy bottom;
-    [SerializeField] public Enemy forth; 
+    [SerializeField] public Enemy forth;
+    [SerializeField] public int enemiesPlusOne;
     private static int highScoreInt;
     private static int playScoreInt;
     [SerializeField] public int livesLeft = 3;
@@ -42,6 +44,12 @@ public class Score_Lives : MonoBehaviour
         score.text = "" + playScoreInt + "";
         highScore.text = "" + highScoreInt + "";
         Debug.Log("refresh score");
+        enemiesPlusOne -= 1;
+
+        if (playScoreInt >= 265)
+        {
+            gameOver();
+        }
     }
 
     // Update is called once per frame
@@ -69,5 +77,9 @@ public class Score_Lives : MonoBehaviour
         Debug.Log("add score");
         RefreshScore();
 
+    }
+    public void gameOver()
+    {
+        SceneManager.LoadScene(2);
     }
 }

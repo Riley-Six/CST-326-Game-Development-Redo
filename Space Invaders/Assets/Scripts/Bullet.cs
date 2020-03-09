@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))] //technique for making sure there isn't a null reference during runtime if you are going to use get component
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D myRigidbody2D;
-    public Enemy top;
-    public Enemy mid;
-    public Enemy bottom;
-    public Enemy forth;
+    //public Enemy top;
+    //public Enemy mid;
+    //public Enemy bottom;
+    //public Enemy forth;
+    public int enemyNumber;
     public Score_Lives scoreKeeper;
     public int yo;
 
@@ -36,7 +38,7 @@ public class Bullet : MonoBehaviour
         //Debug.Log("EXPIRE!!!");
         //Destroy(collision.gameObject);
 
-        if (collision.gameObject.name == "Enemytype1")
+        if (collision.gameObject.name == "SPinner")
         {
             yo = 5;
             //scoreKeeper.AddScore(yo);
@@ -44,17 +46,17 @@ public class Bullet : MonoBehaviour
             //Score_Lives.AddScore("Enemytype1");
             //Score_Lives.AddScore(collision.gameObject.name);
         }
-        else if (collision.gameObject.name == "Enemytype2")
+        else if (collision.gameObject.name == "Flapping")
         {
             yo = 10;
             //Score_Lives.AddScore(yo);
         }
-        else if (collision.gameObject.name == "Enemytype3")
+        else if (collision.gameObject.name == "Chompper")
         {
             yo = 15;
             //Score_Lives.AddScore(yo);
         }
-        else if (collision.gameObject.name == "Player3")
+        else if (collision.gameObject.name == "King Ship")
         {
             yo = 25;
             //Score_Lives.AddScore(yo);
@@ -64,9 +66,24 @@ public class Bullet : MonoBehaviour
             //yo = -10;
         }
         scoreKeeper.AddScore(yo);
-        Debug.Log("EXPIRE!!!");
+        //Debug.Log("EXPIRE!!!");
         Debug.Log(collision.gameObject.name);
-        Destroy(collision.gameObject);
+        //Destroy(collision.gameObject);
+        Destroy(collision.gameObject, 1.5f);
+        if (collision.gameObject.name == "Simple Sheild")
+        {
+            Destroy(collision.gameObject);
+        }
+        //enemyNumber -= 1;
+        //if (enemyNumber == 0)
+        //{
+            //gameOver();
+            //SceneManager.LoadScene(2);
+            //Debug.Log("enemyNumber");
+        //}
+
+        //Destroy(collision.gameObject);
+        //Destroy(collision.gameObject);
 
         //Score_Lives.AddScore(this);
         /*
@@ -89,4 +106,10 @@ public class Bullet : MonoBehaviour
             Score_Lives.AddScore(yo);
         }*/
     }
+    //void gameOver()
+    //{
+    //    SceneManager.LoadScene("creditsOver");
+    //}
+
 }
+
