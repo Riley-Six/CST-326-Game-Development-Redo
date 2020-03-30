@@ -8,8 +8,11 @@ public class Enemy : MonoBehaviour
   public WaypointManager waypointManager;
   private int currentIndexWaypoint = 0;
   public float speed = 1;
+  public float health = 5;
+  public GameObject weapon;
+  public GameObject hpBar;
 
-  public void Initialize(WaypointManager waypointManager)
+    public void Initialize(WaypointManager waypointManager)
   {
     this.waypointManager = waypointManager;
     GetNextWaypoint();
@@ -33,4 +36,48 @@ public class Enemy : MonoBehaviour
     currentDestination = waypointManager.GetNeWaypoint(currentIndexWaypoint);
     currentIndexWaypoint++;
   }
+
+    /*
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("I was hit by a Ray");
+        health -= 1;
+        if (health == 0)
+        {
+            //Object.Destroy(this.gameObject);
+        }
+
+
+    }/*
+    private void HitByRaycast(source weapon)
+    {
+        Debug.Log("Hello: " );
+    }
+    public class ObjectHit : MonoBehaviour
+    {
+        void HitByRay()
+        {
+            Debug.Log("I was hit by a Ray");
+        }
+    }*/
+    public void damaging()
+    {
+
+        Debug.Log("I was hit by a Ray" + health);
+        health -= 1;
+        hpBar.SendMessage("hurt");
+        //healthBar.hurt();
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
+
+
+
+
+
+
 }
